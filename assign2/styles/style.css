@@ -126,7 +126,7 @@ nav ul a:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background-image: url("/assign2/styles/images/Banner.jpeg");
+  background-image: url("/Assign2/styles/images/Banner.jpeg");
   background-position: 50% 0%;
   height: 550px !important;
   background-size: cover;
@@ -328,7 +328,7 @@ a {
 /* -----------------------------------*/
 
 .about-section {
-  background: url("/assign2/styles/images/about-us.png") no-repeat left;
+  background: url("/Assign2/styles/images/about-us.png") no-repeat left;
   background-size: 80%;
   overflow: hidden;
   margin: 100px 0;
