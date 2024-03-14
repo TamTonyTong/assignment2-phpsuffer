@@ -10,22 +10,23 @@
   <meta name="author" content="Huỳnh Nguyễn Quốc Bảo">
   <title>Job Vacancy</title>
   <link href="styles/style.css" rel="stylesheet">
+  <!--Icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <!--Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-  <!--Icons-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="icon" type="image/x-icon" href="images/logo-web.png">
+  <link rel="icon" type="image/x-icon" href="images/logo-web.png">
 </head>
 
 <body>
-<?php $currentPage='jobs';
-include('header.inc');?>
+  <?php $currentPage = 'jobs';
+  include('header.inc'); ?>
+  <h1 id="applyh1">Job Descriptions</h1>
+  </div>
+  </header>
   <!--Job list-->
   <div class="jobs-list-container">
     <h2>5 Jobs</h2>
@@ -63,7 +64,7 @@ include('header.inc');?>
         <aside>
           <p><strong><em>*Salary depends on experience*</em></strong></p>
         </aside>
-        <a href="apply.html" class="Apply-btn"><strong>Apply</strong></a>
+        <a href="apply.php" class="Apply-btn"><strong>Apply</strong></a>
         <span class="open-postion"><strong>4 open positions</strong></span>
 
 
@@ -102,7 +103,7 @@ include('header.inc');?>
         <aside>
           <p><strong><em>*Salary depends on experience*</em></strong></p>
         </aside>
-        <a href="apply.html" class="Apply-btn"><strong>Apply</strong></a>
+        <a href="apply.php" class="Apply-btn"><strong>Apply</strong></a>
         <span class="open-postion"><strong>4 open positions</strong></span>
       </div>
 
@@ -139,7 +140,7 @@ include('header.inc');?>
         <aside>
           <p><strong><em>*Salary depends on experience*</em></strong></p>
         </aside>
-        <a href="apply.html" class="Apply-btn"><strong>Apply</strong></a>
+        <a href="apply.php" class="Apply-btn"><strong>Apply</strong></a>
         <span class="open-postion"><strong>4 open positions</strong></span>
       </div>
 
@@ -179,7 +180,7 @@ include('header.inc');?>
         <aside>
           <p><strong><em>*Salary depends on experience*</em></strong></p>
         </aside>
-        <a href="apply.html" class="Apply-btn"><strong>Apply</strong></a>
+        <a href="apply.php" class="Apply-btn"><strong>Apply</strong></a>
         <span class="open-postion"><strong>4 open positions</strong></span>
       </div>
 
@@ -218,7 +219,7 @@ include('header.inc');?>
         <aside>
           <p><strong><em>*Salary depends on experience*</em></strong></p>
         </aside>
-        <a href="apply.html" class="Apply-btn"><strong>Apply</strong></a>
+        <a href="apply.php" class="Apply-btn"><strong>Apply</strong></a>
         <span class="open-postion"><strong>4 open positions</strong></span>
       </div>
     </div>

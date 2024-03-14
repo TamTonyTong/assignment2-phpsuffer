@@ -20,9 +20,19 @@
   </head>
   <body>
   
- <?php $currentPage='home';
+ <?php $currentPage='index';
   include("header.inc");?>
-    <!--Content-->
+      <div class ="statitics">
+        <h1>The Easiest Way To Get Your Job</h1>
+            <ul id="statistics_bar">
+              <li><div id ="countdown1"></div><hr><span class="material-symbols-outlined"> globe </span>Countries</li>
+              <li><div id ="countdown2"></div><hr><span class="material-symbols-outlined">apartment</span> Companies</li>
+              <li><div id ="countdown3"></div><hr><span class="material-symbols-outlined"> person_apron </span>Active Employees</li>
+              <li><div id ="countdown4"></div><hr><span class="material-symbols-outlined">location_away </span>Clients</li>
+            </ul>
+        </div>
+      </div>
+  </header>  
     <div id="big_box">
       <div class="section-head">
         <h2>Why Choose Us?</h2>
