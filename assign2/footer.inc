@@ -46,5 +46,3 @@
       <hr>
       <p class="copyright">&copy;<a href = "https://www.swinburne.edu.au">Swinburne University of Technology</a></p>
     </footer>
-  </body>
-</html>
