@@ -23,29 +23,8 @@
 </head>
 
 <body>
-
-  <!--Header and navbar-->
-  <header>
-    <nav>
-      <a href="#home" class="logo"><img src="images/Logo.png" alt="logo" class="logo"></a>
-      <input type="checkbox" id="dropdown-btn">
-      <label for="dropdown-btn">
-        <span class="fa-solid fa-bars"></span>
-      </label>
-      <ul id="nav_bar">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#" class="active">About Us</a></li>
-        <li><a href="enhancements.html">Enhancements</a></li>
-        <li><a href="jobs.html">Job Descriptions</a></li>
-      </ul>
-    </nav>
-
-    <!--Banner-->
-    <div class="banner">
-      <h1 id="applyh1">About Us</h1>
-    </div>
-  </header>
-
+  <?php $currentPage='about';
+  include('header.inc');?>
   <!--Introduction-->
   <div class="about-section">
     <div class="inner-container">

@@ -24,25 +24,8 @@
 </head>
 
 <body>
-  <header>
-    <nav>
-      <a href="#home" class="logo"><img src="images/Logo.png" alt="logo" class="logo"></a>
-      <input type="checkbox" id="dropdown-btn">
-      <label for="dropdown-btn">
-        <span class="fa-solid fa-bars"></span>
-      </label>
-      <ul id="nav_bar">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="enhancements.html">Enhancements</a></li>
-        <li><a href="jobs.html">Job Descriptions</a></li>
-        <li><a href="#" class="active">Job Application</a></li>
-      </ul>
-    </nav>
-    <div class="banner">
-      <h1 id="applyh1">Job Application Form</h1>
-    </div>
-  </header>
+  <?php $currentPage='apply';
+  include('header.inc');?>
   <div class="job-applying-container">
     <!--Please remember to required all the forms - Tam Tong-->
     <div class="applying-basic-info">

@@ -24,29 +24,8 @@
 </head>
 
 <body>
-
-  <!--Header and navbar-->
-  <header>
-    <nav>
-      <a href="#home" class="logo"><img src="images/Logo.png" alt="logo" class="logo"></a>
-      <input type="checkbox" id="dropdown-btn">
-      <label for="dropdown-btn">
-        <span class="fa-solid fa-bars"></span>
-      </label>
-      <ul id="nav_bar">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="enhancements.html">Enhancements</a></li>
-        <li><a href="#" class="active">Job Descriptions</a></li>
-      </ul>
-    </nav>
-
-    <!--Banner-->
-    <div class="banner">
-      <h1 id="applyh1">Job Descriptions</h1>
-    </div>
-  </header>
-
+<?php $currentPage='jobs';
+include('header.inc');?>
   <!--Job list-->
   <div class="jobs-list-container">
     <h2>5 Jobs</h2>
