@@ -31,12 +31,12 @@
     <div class="applying-basic-info">
       <h2>Personal Information</h2>
       <hr>
-      <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+      <form method="post" action="processEOI.php">
         <p id="asterisk"><em><strong>Required fields</strong></em></p>
         <label for="job_ref_num"> Job Reference Number</label>
         <input type="text" name="job_ref_num" id="job_ref_num" size="20" pattern="[a-zA-Z0-9]{5}" placeholder="SWS05"
           title="Please enter exactly 5 aplphanumeric characters" required>
-        <div class="name-container">
+        <!-- <div class="name-container">
           <div>
             <label for="first_name"> First Name</label>
             <input type="text" name="first_name" id="first_name" size="20" pattern="[A-Za-z]{1,20}"
@@ -139,7 +139,7 @@
           </label>
 
           <br><textarea name="other_skills" rows="5" cols="75" placeholder="Write your other skills here..."></textarea>
-        </div>
+        </div> -->
 
         <input type="submit" value="Apply" id="apply">
 

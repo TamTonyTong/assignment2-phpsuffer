@@ -24,7 +24,14 @@
 
 <body>
   <?php $currentPage='about';
+<<<<<<< Updated upstream:assign1/about.php
   include('header.inc');?>
+=======
+  require_once('menu.inc');?>
+  <h1 id="applyh1">About Us</h1>
+    </div>
+  </header>
+>>>>>>> Stashed changes:assign2/about.php
   <!--Introduction-->
   <div class="about-section">
     <div class="inner-container">

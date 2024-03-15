@@ -24,8 +24,16 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream:assign1/jobs.php
 <?php $currentPage='jobs';
 include('header.inc');?>
+=======
+  <?php $currentPage = 'jobs';
+  require_once('menu.inc'); ?>
+  <h1 id="applyh1">Job Descriptions</h1>
+  </div>
+  </header>
+>>>>>>> Stashed changes:assign2/jobs.php
   <!--Job list-->
   <div class="jobs-list-container">
     <h2>5 Jobs</h2>
