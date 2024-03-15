@@ -8,10 +8,21 @@
 
 <body>
   <?php $currentPage='about';
+<<<<<<< HEAD:assign2/about.php
   include('menu.inc');?>
   <h1 id="applyh1">About Us</h1>
     </div>
   </header>
+=======
+<<<<<<< Updated upstream:assign1/about.php
+  include('header.inc');?>
+=======
+  require_once('menu.inc');?>
+  <h1 id="applyh1">About Us</h1>
+    </div>
+  </header>
+>>>>>>> Stashed changes:assign2/about.php
+>>>>>>> Tam-Tong:assign1/about.php
   <!--Introduction-->
   <div class="about-section">
     <div class="inner-container">

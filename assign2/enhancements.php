@@ -8,7 +8,11 @@
 
 <body>
   <?php $currentPage='enhancements';
+<<<<<<< HEAD
    include("menu.inc");?>
+=======
+   require_once("menu.inc");?>
+>>>>>>> Tam-Tong
    <h1 id="applyh1">Enhancements</h1>
     </div>
   </header>
