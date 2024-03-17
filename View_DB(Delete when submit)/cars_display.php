@@ -19,8 +19,7 @@
         echo "<p>Database connection failure</p>";
     }
     else {
-    $sql_table="cars";
-    $query="select EOInumber, Status, Job_Reference_Number FROM asm2";
+    $query="select ID, Status, Job_Reference_Number FROM asm2";
     $result=mysqli_query($conn,$query);
     if (!$result) {
         echo "<p>Something is wrong with ", $query, "</p>";
@@ -28,7 +27,7 @@
     else {
         echo "<table border=\"1\">\n";
         echo "<tr>\n "
-        ."<th scope= \"col\">EOInumber</th>\n "
+        ."<th scope= \"col\">ID</th>\n "
         ."<th scope= \"col\">Status</th>\n "
         ."<th scope= \"col\">Job_Reference_Number</th>\n"
         ."<th scope= \"col\">Firstname</th>\n"
@@ -43,7 +42,7 @@
         ."</tr>\n";
         while ($row=mysqli_fetch_assoc($result)) {
             echo "<tr>\n ";
-            echo "<td>", $row["EOInumber"], "</td>\n ";
+            echo "<td>", $row["ID"], "</td>\n ";
             echo "<td>", $row["Status"], "</td>\n ";
             echo "<td>", $row["Job_Reference_Number"], "</td>\n ";
             echo "</tr>\n "; 
