@@ -8,7 +8,7 @@
 
 <body>
   <?php $currentPage='apply';
-  include('menu.inc');?>
+  require_once('menu.inc');?>
   <h1 id="applyh1">Job Application Form</h1>
     </div>
   </header>
@@ -21,29 +21,29 @@
         <p id="asterisk"><em><strong>Required fields</strong></em></p>
         <label for="job_ref_num"> Job Reference Number</label>
         <input type="text" name="job_ref_num" id="job_ref_num" size="20" pattern="[a-zA-Z0-9]{5}" placeholder="SWS05"
-          title="Please enter exactly 5 aplphanumeric characters" required>
-        <!-- <div class="name-container">
+          title="Please enter exactly 5 aplphanumeric characters" >
+        <div class="name-container">
           <div>
             <label for="first_name"> First Name</label>
             <input type="text" name="first_name" id="first_name" size="20" pattern="[A-Za-z]{1,20}"
-              title="Only maximum of 20 alphabetical characters allowed" required>
+              title="Only maximum of 20 alphabetical characters allowed" >
           </div>
 
           <div id="last_name_align">
             <label for="last_name" id="last_name1"> Last Name</label>
             <input type="text" name="last_name" id="last_name" size="20" pattern="[A-Za-z]{1,20}"
-              title="Only maximum of 20 alphabetical characters allowed" required>
+              title="Only maximum of 20 alphabetical characters allowed" >
           </div>
         </div>
 
         <label for="date_of_birth"> Date of Birth</label>
-        <input type="date" name="date_of_birth" id="date_of_birth" size="20" title="Please Enter your D.O.B" required>
+        <input type="date" name="date_of_birth" id="date_of_birth" size="20" title="Please Enter your D.O.B" >
 
         <div class="gender">
           <fieldset>
             <legend>Gender</legend>
             <label class="container">
-              <input type="radio" name="gender" value="Men" title="Please choose your gender" required>Men
+              <input type="radio" name="gender" value="Men" title="Please choose your gender" >Men
               <span class="checkmark"></span>
             </label>
             <label class="container">Women
@@ -56,15 +56,15 @@
 
 
         <label for="street_address">Street Address</label>
-        <input type="text" name="street_address" id="street_address" size="30" maxlength="40" required>
+        <input type="text" name="street_address" id="street_address" size="30" maxlength="40" >
 
         <label for="suburb_town">Suburb Town</label>
-        <input type="text" name="suburb_town" id="suburb_town" size="30" maxlength="40" required>
+        <input type="text" name="suburb_town" id="suburb_town" size="30" maxlength="40" >
 
 
         <label id="statecuztomize" for="state">State</label>
 
-        <select name="state" id="state" required>
+        <select name="state" id="state" >
           <option value="">Please Select</option>
           <option value="VIC">VIC</option>
           <option value="NSW">NSW</option>
@@ -79,18 +79,18 @@
 
 
         <label for="postcode">Postcode</label>
-        <input type="text" name="postcode" id="postcode" size="10" pattern="\d{4}" title="Please enter exact 4 digits" required>
+        <input type="text" name="postcode" id="postcode" size="10" pattern="\d{4}" title="Please enter exact 4 digits" >
 
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
+        <input type="email" name="email" id="email" >
 
         <label for="phone_num">Phone Number</label>
-        <input type="text" name="phone_num" id="phone_num" pattern="[0-9\s]{8,12}" title="Please enter from 8 to 12 digits" required>
+        <input type="text" name="phone_num" id="phone_num" pattern="[0-9\s]{8,12}" title="Please enter from 8 to 12 digits" >
 
-        <div class="skill_list">
+        <!-- <div class="skill_list">
           <h2>Skills List</h2>
           <label class="container">Programming Languages
-            <input type="checkbox" name="skill_list[]" value="Programming Languages" required>
+            <input type="checkbox" name="skill_list[]" value="Programming Languages" >
             <span class="checkmark"></span>
           </label>
 
