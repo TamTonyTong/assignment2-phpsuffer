@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $postcode = mysqli_real_escape_string($conn, trim($_POST["postcode"]));
     $email = mysqli_real_escape_string($conn, trim($_POST["email"]));
     $phone_num = mysqli_real_escape_string($conn, trim($_POST["phone_num"]));
+    //$skill_list= mysqli_real_escape_string( $conn, trim($_POST["skill_list"]));
     // $skill_list=[];
     //     foreach ($_POST["skill_list"] as $skill) {
     //     // Trim each skill value to remove whitespace
@@ -63,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (mysqli_query($conn, $update_query)) {
             // Fetch the last inserted EOInumber
-            $last_insert_id_query = "SELECT EOINUM FROM EOI ORDER BY ID DESC LIMIT 1";
+            $last_insert_id_query = "SELECT EOINUM FROM EOI";
             $result = mysqli_query($conn, $last_insert_id_query);
             $row = mysqli_fetch_assoc($result);
             $eoi_number = $row['EOINUM'];
