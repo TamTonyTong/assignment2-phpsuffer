@@ -17,7 +17,7 @@
     <div class="applying-basic-info">
       <h2>Personal Information</h2>
       <hr>
-      <form method="post" action="processEOI.php">
+      <form method="post" action="processEOI.php" novalidate="novalidate">
         <p id="asterisk"><em><strong>Required fields</strong></em></p>
         <label for="job_ref_num"> Job Reference Number</label>
         <input type="text" name="job_ref_num" id="job_ref_num" size="20" pattern="[a-zA-Z0-9]{5}" placeholder="SWS05"
@@ -133,7 +133,7 @@
       </form>
     </div>
   </div>
-
+  
   <?php include("footer.inc");?>
 
 </body>
