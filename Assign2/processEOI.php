@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //     }
     //     else{}
     //     }
+    // INSTEAD OF DOING 2 TABLES, I WILL DO 1 TABLE AND SEE IF ITS WORKS THEN DO ANOTHER
     // $other_skill = mysqli_real_escape_string($conn, trim($_POST["other_skills"]));
     // CREATE TABLE IF NOT
     // Check if the EOI table exists
