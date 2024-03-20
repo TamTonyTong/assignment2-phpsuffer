@@ -19,7 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $postcode = mysqli_real_escape_string($conn, trim($_POST["postcode"]));
     $email = mysqli_real_escape_string($conn, trim($_POST["email"]));
     $phone_num = mysqli_real_escape_string($conn, trim($_POST["phone_num"]));
-    //$skill_list= mysqli_real_escape_string( $conn, trim($_POST["skill_list"]));
+    $skill1= mysqli_real_escape_string( $conn, trim($_POST["skill_list"]));
+    $skill2= mysqli_real_escape_string( $conn, trim($_POST["skill_list"]));
+    $skill3= mysqli_real_escape_string( $conn, trim($_POST["skill_list"]));
+    $skill4= mysqli_real_escape_string( $conn, trim($_POST["skill_list"]));
+    $skill5= mysqli_real_escape_string( $conn, trim($_POST["skill_list"]));
+    $skill6= mysqli_real_escape_string( $conn, trim($_POST["skill_list"]));
+    $other_skill=mysqli_real_escape_string( $conn, trim($_POST["other_skill"]));
     // $skill_list=[];
     //     foreach ($_POST["skill_list"] as $skill) {
     //     // Trim each skill value to remove whitespace
@@ -38,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the EOI table exists
     $checking_query = "SHOW TABLES LIKE 'EOI'";
     $result = mysqli_query($conn, $checking_query);
+    // REMEMBER TO FIX THE FORMAT OF NEW CREATED TABLES
     if (mysqli_num_rows($result) == 0) {
         $create_table_query = "CREATE TABLE EOI (
             EOINUM VARCHAR(36) COLLATE latin1_swedish_ci,
@@ -57,8 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_query($conn, $create_table_query);
     }
     // INSERT DATA TO TABLE
-    $insert_query = "INSERT INTO `EOI` (`Job_Reference_Number`,`First Name`, `Last Name`,`DOB`,`Gender`, `Street address`, `Suburb/town`, `State`, `Postcode`, `Email Address`, `Phone Number`) 
-    VALUES ('$job_ref_num','$first_name','$last_name','$date_of_birth','$gender','$street_address','$suburb_town','$state','$postcode','$email','$phone_num')";
+    $insert_query = "INSERT INTO `EOI` (`Job_Reference_Number`,`First Name`, `Last Name`,`DOB`,`Gender`, `Street address`, `Suburb/town`, `State`, `Postcode`, `Email Address`, `Phone Number`
+    , `skill1`,`skill2`,`skill3`,`skill4`,`skill5`,`other_skill`) 
+    VALUES ('$job_ref_num','$first_name','$last_name','$date_of_birth','$gender','$street_address','$suburb_town','$state','$postcode','$email','$phone_num',
+    '$skill1', '$skill2', '$skill3', '$skill4', '$skill5', '$other_skill')";
 
     if (mysqli_query($conn, $insert_query)) {
         $update_query = "UPDATE EOI SET EOINUM = UUID() WHERE 1";
