@@ -11,15 +11,20 @@
 <body>
     <h1>HR Managing Site</h1>
     <form method="post" action="processEOI_Mananger.php">
-        <p>
-            <input type="submit" name="list_all_EOI" value="Show All Records">
-        </p>
+        <fieldset>
+    <select name="query_type">
+        <option value="Show All Records">Show All Records</option>
+        <option value="Show Records by Job Reference Number">Show Records by Job References Number</option>
+        <option value="Show Records by Names">Show Records by Names</option>
+        <option value="Delete Records by Job Reference Number">Delete Records by Job Reference Number</option>
+        <option value="Change Status of an EOI">Change Status of an EOI</option>
+    </select>
+        </fieldset>
+        <br>
         <p>
         <label for="job_ref_num"> Job Reference Number
             <input type="text" name="job_ref_num">
         </label>
-            <input type="submit" name="job_ref_action" value="Show All Records Based On Job Reference Number">
-            <input type="submit" name="job_ref_action" value="Delete all EOIs with a specific Job Reference Number">
         </p>
         <label for="first_name"> First Name
             <input type="text" name="first_name">
@@ -27,7 +32,6 @@
         <label for="last_name"> Last Name
             <input type="text" name="last_name">
         </label>
-        <input type="submit" value="Show All Records Based On First Name and/or Last Name">
         </p>
         <p>
             <label for="EOINUM"> EOI Number
@@ -36,9 +40,11 @@
             <label for="Status"> New Status
                 <input type="text" name="Status">
             </label>
-        <input type="submit" name="Change" value="Change the status base on EOI NUM">
         </p>
+        <input type="submit" value="Submit">
+
     </form>
+    
 </body>
 
 </html>
