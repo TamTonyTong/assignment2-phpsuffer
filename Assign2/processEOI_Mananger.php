@@ -130,3 +130,6 @@
             exit;
         }
     }
+    else {
+        header ("location: apply.html");
+    }
