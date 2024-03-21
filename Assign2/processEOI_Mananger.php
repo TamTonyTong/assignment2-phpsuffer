@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php
+    require_once('header.inc'); ?>
+    <meta name="author" content="Tống Đức Từ Tâm">
+    <title>Form Checking</title>
+</head>
+
+<body>
+    <h1>Mananger</h1>
+    <?php
+
+    require_once("settings.php");
+
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+
+    if (!$conn) {
+        die("Connection Failed: " . mysqli_connect_error());
+    }
+    function sanitise_input($input)
+    {
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+        return $input;
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        var_dump($_POST);
+        if (isset($_POST['list_all_EOI']) && $_POST['list_all_EOI'] === "Show All Records") {
+            $search_querry = "SELECT * FROM `EOI`";
+            $result = mysqli_query($conn, $search_querry);
+        } elseif (!empty($_POST['job_ref_num']) && $_POST['job_ref_action'] === "Show All Records Based On Job Reference Number") {
+            $job_ref_num = sanitise_input($_POST["job_ref_num"]);
+            $search_querry = "SELECT * FROM `EOI` WHERE Job_Reference_Number LIKE '$job_ref_num'";
+            $result = mysqli_query($conn, $search_querry);
+        } 
+        }
+            
+                if (!empty($_POST['first_name']) or !empty($_POST['last_name'])) {
+                    $first_name = sanitise_input($_POST["first_name"]);
+                    $last_name = sanitise_input($_POST["last_name"]);
+                    $search_querry = "SELECT * FROM `EOI` WHERE `First Name` LIKE '$first_name' OR `Last Name` LIKE '$last_name'";
+                    $result = mysqli_query($conn, $search_querry);
+                }
+                
+                if ($result) {
+                    echo "<table border=\"1\">\n";
+                    echo "<tr>\n "
+                        . "<th scope= \"col\">EOINUM</th>\n "
+                        . "<th scope= \"col\">Status</th>\n "
+                        . "<th scope= \"col\">Job Reference Number</th>\n"
+                        . "<th scope= \"col\">First Name</th>\n"
+                        . "<th scope= \"col\">Last Name</th>\n"
+                        . "<th scope= \"col\">Date of Birth</th>\n"
+                        . "<th scope= \"col\">Gender</th>\n"
+                        . "<th scope= \"col\">Street Address</th>\n"
+                        . "<th scope= \"col\">Suburb/Town</th>\n"
+                        . "<th scope= \"col\">State</th>\n"
+                        . "<th scope= \"col\">Postcode</th>\n"
+                        . "<th scope= \"col\">Email Address</th>\n"
+                        . "<th scope= \"col\">Phone Number</th>\n"
+                        . "<th scope= \"col\">Skill 1</th>\n"
+                        . "<th scope= \"col\">Skill 2</th>\n"
+                        . "<th scope= \"col\">Skill 3</th>\n"
+                        . "<th scope= \"col\">Skill 4</th>\n"
+                        . "<th scope= \"col\">Skill 5</th>\n"
+                        . "<th scope= \"col\">Skill 6</th>\n"
+                        . "<th scope= \"col\">Other Skill</th>\n"
+                        . "</tr>\n";
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>\n ";
+                        echo "<td>", $row["EOINUM"], "</td>\n ";
+                        echo "<td>", $row["Status"], "</td>\n ";
+                        echo "<td>", $row["Job_Reference_Number"], "</td>\n ";
+                        echo "<td>", $row["First Name"], "</td>\n ";
+                        echo "<td>", $row["Last Name"], "</td>\n ";
+                        echo "<td>", $row["DOB"], "</td>\n ";
+                        echo "<td>", $row["Gender"], "</td>\n ";
+                        echo "<td>", $row["Street address"], "</td>\n ";
+                        echo "<td>", $row["Suburb/town"], "</td>\n ";
+                        echo "<td>", $row["State"], "</td>\n ";
+                        echo "<td>", $row["Postcode"], "</td>\n ";
+                        echo "<td>", $row["Email Address"], "</td>\n ";
+                        echo "<td>", $row["Phone Number"], "</td>\n ";
+                        echo "<td>", $row["skill1"], "</td>\n ";
+                        echo "<td>", $row["skill2"], "</td>\n ";
+                        echo "<td>", $row["skill3"], "</td>\n ";
+                        echo "<td>", $row["skill4"], "</td>\n ";
+                        echo "<td>", $row["skill5"], "</td>\n ";
+                        echo "<td>", $row["skill6"], "</td>\n ";
+                        echo "<td>", $row["other_skill"], "</td>\n ";
+                        echo "</tr>\n ";
+                    }
+                    echo "</table>\n ";
+                }
+        if (!empty($_POST['EOINUM']) && !empty($_POST['Status']) && $_POST['Change'] === "Change the status base on EOI NUM") {
+            $EOINUM = sanitise_input($_POST['EOINUM']);
+            $Status = sanitise_input($_POST['Status']);
+            $update_query = "UPDATE EOI SET `Status` = '$Status' WHERE `EOINUM` LIKE '$EOINUM'";}
+            if (mysqli_query($conn, $update_query)) {
+                echo "Status of EOI with EOI $EOINUM has been changed to $Status successfully.";
+                exit;
+            } else {
+                echo "Error updating status: " . mysqli_error($conn);
+                exit;
+            }
+        if (!empty($_POST['job_ref_num']) && $_POST['job_ref_action'] === "Delete all EOIs with a specific Job Reference Number") {
+            $job_ref_num = sanitise_input($_POST["job_ref_num"]);
+            $delete_querry = "DELETE FROM `EOI` WHERE Job_Reference_Number = '$job_ref_num'";
+            $delete_result = mysqli_query($conn, $delete_querry);}
+            if ($delete_result) {
+                $affected_rows = mysqli_affected_rows($conn);
+                if ($affected_rows > 0) {
+                    echo "All EOIs with job reference number $job_ref_num have been deleted successfully.";
+                    exit;
+                } else {
+                    echo "No EOIs found with job reference number $job_ref_num.";
+                    exit;
+                }
+            }
