@@ -213,18 +213,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) == 0) {
         $create_table_query = "CREATE TABLE EOI (
             EOINUM VARCHAR(36) COLLATE latin1_swedish_ci,
-            ID INT(11) AUTO_INCREMENT PRIMARY KEY,
             Status ENUM('New', 'Current', 'Final') COLLATE latin1_swedish_ci DEFAULT 'New',
             Job_Reference_Number VARCHAR(5) COLLATE latin1_swedish_ci,
             `First Name` VARCHAR(20) COLLATE latin1_swedish_ci,
             `Last Name` VARCHAR(20) COLLATE latin1_swedish_ci,
+            `DOB` VARCHAR(10) COLLATE latin1_swedish_ci,
+            `Gender` VARCHAR(10) COLLATE latin1_swedish_ci,
             `Street address` VARCHAR(20) COLLATE latin1_swedish_ci,
             `Suburb/town` VARCHAR(20) COLLATE latin1_swedish_ci,
-            State VARCHAR(20) COLLATE latin1_swedish_ci,
-            Postcode INT(20),
+            `State` VARCHAR(20) COLLATE latin1_swedish_ci,
+            `Postcode` INT(4),
             `Email Address` VARCHAR(20) COLLATE latin1_swedish_ci,
             `Phone Number` INT(15),
-            Skills VARCHAR(20) COLLATE latin1_swedish_ci
+            `skill1` VARCHAR(36) COLLATE latin1_swedish_ci,
+            `skill2` VARCHAR(36) COLLATE latin1_swedish_ci,
+            `skill3` VARCHAR(36) COLLATE latin1_swedish_ci,
+            `skill4` VARCHAR(36) COLLATE latin1_swedish_ci,
+            `skill5` VARCHAR(36) COLLATE latin1_swedish_ci,
+            `skill6` VARCHAR(36) COLLATE latin1_swedish_ci,
+            `other_skill` VARCHAR(40) COLLATE latin1_swedish_ci
             )";
         mysqli_query($conn, $create_table_query);
     }
