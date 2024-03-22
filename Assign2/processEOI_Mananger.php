@@ -76,9 +76,9 @@
         
         if ($result and mysqli_num_rows($result) > 0) {
             echo "<table border=\"1\">\n";
-            echo "<tr>\n "
-                . "<th scope= \"col\">EOINUM</th>\n "
-                . "<th scope= \"col\">Status</th>\n "
+            echo "<tr>\n"   
+                . "<th scope= \"col\">EOINUM</th>\n"
+                . "<th scope= \"col\">Status</th>\n"
                 . "<th scope= \"col\">Job Reference Number</th>\n"
                 . "<th scope= \"col\">First Name</th>\n"
                 . "<th scope= \"col\">Last Name</th>\n"

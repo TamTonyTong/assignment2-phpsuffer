@@ -4,25 +4,25 @@
 <?php
 require_once('header.inc');?>
   <meta name="author" content="Tống Đức Từ Tâm">
+  <link rel="stylesheet" href="styles/style_php.css">
   <title>Form Checking</title>
 </head>
 <body>
-    <h1>Result:</h1>
+    <h1>Result</h1>
 <?php
-
-require_once("settings.php");
-
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
-
-if (!$conn) {
-    die("Connection Failed: " . mysqli_connect_error());
-}
 function sanitise_input($input)
 {
     $input = trim($input);
     $input = stripslashes($input);
     $input = htmlspecialchars($input);
     return $input;
+}
+require_once("settings.php");
+
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+
+if (!$conn) {
+    die("Connection Failed: " . mysqli_connect_error());
 }
 // RETURN TO APPLY IF USER HASN'T ENTER FORM
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -31,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $job_ref_num = $_POST["job_ref_num"];
         $job_ref_num = sanitise_input($job_ref_num);
         if (!preg_match("/^[a-zA-Z0-9]{5}$/", $job_ref_num)) {
-            $errors = "Job reference number must be exactly 5 alphanumeric characters.<br>";
-            echo $errors;
+            $errors = "<p class='errors'>Job reference number must be exactly 5 alphanumeric characters.<p>";
+            //header("location: error_display.php");
             echo "<a href='apply.php'>Go back to the form</a> ";
             exit;
         }

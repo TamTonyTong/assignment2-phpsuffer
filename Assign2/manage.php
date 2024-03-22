@@ -4,7 +4,7 @@
 <head>
     <?php require_once('header.inc'); ?>
     <meta name="author" content="Tống Đức Từ Tâm">
-    <link rel="stylesheet" href="Query(Take from Lab 10).css" type="text/css" />
+    <link rel="stylesheet" href="styles/Query(Take from Lab 10).css" type="text/css" />
     <title>HR Checking</title>
 </head>
 
