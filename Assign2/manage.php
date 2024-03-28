@@ -4,14 +4,14 @@
 <head>
     <?php require_once('header.inc'); ?>
     <meta name="author" content="Tống Đức Từ Tâm">
-    <link rel="stylesheet" href="styles/Query(Take from Lab 10).css" type="text/css" />
+    <link rel="stylesheet" href="styles/style.css" type="text/css" />
     <title>HR Checking</title>
 </head>
 
 <body>
-    <h1>HR Managing Site</h1>
+    <h1 id="HR">HR Managing Site</h1>
     <form method="post" action="manage.php">
-        <fieldset>
+    <div class="HR_style" >   
             <select name="query_type">
                 <option value="Show All Records">Show All Records</option>
                 <option value="Show Records by Job Reference Number">Show Records by Job References Number</option>
@@ -19,7 +19,7 @@
                 <option value="Delete Records by Job Reference Number">Delete Records by Job Reference Number</option>
                 <option value="Change Status of an EOI">Change Status of an EOI</option>
             </select>
-        </fieldset>
+        <input id="blank">
         <br>
         <p>
             <label for="job_ref_num"> Job Reference Number
@@ -44,6 +44,7 @@
         <input type="submit" value="Submit">
 
     </form>
+</div>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //var_dump($_POST);
