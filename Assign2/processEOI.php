@@ -10,6 +10,7 @@ require_once('header.inc');?>
 <body>
     <h1>Result</h1>
 <?php
+include 'config.php';
 function sanitise_input($input)
 {
     $input = trim($input);
@@ -17,13 +18,7 @@ function sanitise_input($input)
     $input = htmlspecialchars($input);
     return $input;
 }
-require_once("settings.php");
 
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
-
-if (!$conn) {
-    die("Connection Failed: " . mysqli_connect_error());
-}
 // RETURN TO APPLY IF USER HASN'T ENTER FORM
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //var_dump($_POST);
