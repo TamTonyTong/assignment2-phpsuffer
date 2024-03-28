@@ -64,11 +64,13 @@
         if (!empty($_POST['date_of_birth'])) {
             $date_of_birth = $_POST["date_of_birth"];
             $date_of_birth = sanitise_input($date_of_birth);
-            // if (!preg_match("/^[a-zA-Z0-9]{5}$/", $date_of_birth)) {
-            //    $errors = "Date of Birth must be between 15 and 80.<br>";
-            //    echo $errors;
-            //    exit;
-            // }
+            $dob = new DateTime($date_of_birth);
+            $today = new DateTime();
+            $age = $today->diff($dob)->y;
+
+            if ($age > 80 || $age < 15) {
+                $errors .= "<p>Age must be between 15 and 80.</p>";
+            }
         } else {
             $date_of_birth = "";
             $errors .= "<p>Date of Birth is required.</p>";
@@ -101,18 +103,38 @@
             $errors .= "<p>Suburb/Town is required.</p>";
         }
         // REMEMBER TO MATCH THE POSTCODE WITH THE STATE NUM
+        // Define the valid postcode ranges for each state
+        $state_postcode_ranges = array(
+            'VIC' => array('3000', '3999', '8000', '8999'),
+            'NSW' => array('2000', '2999', '1000', '1999'),
+            'QLD' => array('4000', '4999', '9000', '9999'),
+            'NT'  => array('0800', '0899', '0900', '0999'),
+            'WA'  => array('6000', '6999', '6800', '6999'),
+            'SA'  => array('5000', '5999', '5800', '5999'),
+            'TAS' => array('7000', '7999', '7800', '7900'),
+            'ACT' => array('0200', '0299', '2600', '2618', '2900', '2920'),
+        );
+
+        // Validate state
         if (!empty($_POST['state'])) {
             $state = $_POST["state"];
             $state = sanitise_input($state);
+            if (!array_key_exists($state, $state_postcode_ranges)) {
+                $errors .= "<p>Invalid state selected.</p>";
+            }
         } else {
             $state = "";
             $errors .= "<p>State selection is required.</p>";
         }
+
+        // Validate postcode
         if (!empty($_POST['postcode'])) {
             $postcode = $_POST["postcode"];
             $postcode = sanitise_input($postcode);
             if (!preg_match("/^\d{4}$/", $postcode)) {
                 $errors .= "<p>Postcode must consist of exactly 4 digits.</p>";
+            } elseif (!in_array($postcode, range($state_postcode_ranges[$state][0], $state_postcode_ranges[$state][1]))) {
+                $errors .= "<p>Invalid postcode for the selected state.</p>";
             }
         } else {
             $postcode = "";
@@ -122,8 +144,7 @@
             // Sanitize and validate email
             // FIND AN ADVANCED WAYS TO VALIDATE EMAIL.
             $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            } else {
+            if (!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $email)) {
                 $errors .= "<p>Invalid email address</p>";
             }
         } else {
@@ -147,8 +168,7 @@
         $skill5 = isset($_POST["skill5"]) ? mysqli_real_escape_string($conn, trim($_POST["skill5"])) : " ";
         $skill6 = isset($_POST["skill6"]) ? mysqli_real_escape_string($conn, trim($_POST["skill6"])) : "";
         $other_skill = isset($_POST["other_skill"]) ? mysqli_real_escape_string($conn, trim($_POST["other_skill"])) : " ";
-        if (empty($skill1 and $skill2 and $skill3 and $skill4 and $skill5 and $skill6))
-        {
+        if (empty($skill1 and $skill2 and $skill3 and $skill4 and $skill5 and $skill6)) {
             $errors .= "<p>One of the skills must be selected</p>";
         }
         if (!empty($skill6)) {

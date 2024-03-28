@@ -72,7 +72,7 @@
           <option value="NSW">NSW</option>
           <option value="QLD">QLD</option>
           <option value="NT">NT</option>
-          <option value="WA">SA</option>
+          <option value="WA">WA</option>
           <option value="SA">SA</option>
           <option value="TAS">TAS</option>
           <option value="ACT">ACT</option>
