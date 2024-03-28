@@ -7,8 +7,10 @@
 </head>
 
 <body>
+  <header>
   <?php $currentPage='apply';
   require_once('menu.inc');?>
+  <div class="banner">
   <h1 id="applyh1">Job Application Form</h1>
     </div>
   </header>

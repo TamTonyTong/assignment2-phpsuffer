@@ -7,13 +7,13 @@
 </head>
 
 <body>
+  <header>
   <?php $currentPage='about';
   include('menu.inc');?>
+  <div class="banner">
   <h1 id="applyh1">About Us</h1>
     </div>
-  </header>
-  require_once('menu.inc');?>
-  <h1 id="applyh1">About Us</h1>
+</header>
     </div>
   </header>
   <!--Introduction-->

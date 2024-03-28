@@ -7,9 +7,10 @@
 </head>
 
 <body>
-
+<header>
   <?php $currentPage = 'index';
   include("menu.inc"); ?>
+  <div class="banner">
   <div class="statitics">
     <h1>The Easiest Way To Get Your Job</h1>
     <ul id="statistics_bar">

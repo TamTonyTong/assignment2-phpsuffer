@@ -9,9 +9,12 @@
 <?php $currentPage='jobs';
   include('header.inc');?>
 <body>
-  <?php $currentPage = 'jobs';
-  include('menu.inc'); ?>
-  <h1 id="applyh1">Job Descriptions</h1>
+  <header>
+    <?php $currentPage = 'jobs';
+    include('menu.inc'); ?>
+    <div class="banner">
+      <h1 id="applyh1">Job Descriptions</h1>
+    </div>
   </div>
   </header>
   <!--Job list-->

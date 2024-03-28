@@ -7,10 +7,12 @@
 </head>
 
 <body>
-  <?php $currentPage='enhancements';
-   require_once("menu.inc");?>
-   <h1 id="applyh1">Enhancements</h1>
-    </div>
+  <header>
+    <?php $currentPage='enhancements';
+    require_once("menu.inc");?>
+    <div class="banner">
+    <h1 id="applyh1">Enhancements</h1>
+  </div>
   </header>
   <div class="enhancements">
     <h2>List of Enhancements:<span class="h-enhancement-bolding"><span></span></span> </h2>
