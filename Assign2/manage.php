@@ -12,19 +12,19 @@
     <h1>HR Managing Site</h1>
     <form method="post" action="manage.php">
         <fieldset>
-    <select name="query_type">
-        <option value="Show All Records">Show All Records</option>
-        <option value="Show Records by Job Reference Number">Show Records by Job References Number</option>
-        <option value="Show Records by Names">Show Records by Names</option>
-        <option value="Delete Records by Job Reference Number">Delete Records by Job Reference Number</option>
-        <option value="Change Status of an EOI">Change Status of an EOI</option>
-    </select>
+            <select name="query_type">
+                <option value="Show All Records">Show All Records</option>
+                <option value="Show Records by Job Reference Number">Show Records by Job References Number</option>
+                <option value="Show Records by Names">Show Records by Names</option>
+                <option value="Delete Records by Job Reference Number">Delete Records by Job Reference Number</option>
+                <option value="Change Status of an EOI">Change Status of an EOI</option>
+            </select>
         </fieldset>
         <br>
         <p>
-        <label for="job_ref_num"> Job Reference Number
-            <input type="text" name="job_ref_num">
-        </label>
+            <label for="job_ref_num"> Job Reference Number
+                <input type="text" name="job_ref_num">
+            </label>
         </p>
         <label for="first_name"> First Name
             <input type="text" name="first_name">
@@ -46,21 +46,21 @@
     </form>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-var_dump($_POST);
-require_once("settings.php");
+        //var_dump($_POST);
+        require_once("settings.php");
 
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
-if (!$conn) {
-    die("Connection Failed: " . mysqli_connect_error());
-}
-function sanitise_input($input)
-{
-    $input = trim($input);
-    $input = stripslashes($input);
-    $input = htmlspecialchars($input);
-    return $input;
-}
+        if (!$conn) {
+            die("Connection Failed: " . mysqli_connect_error());
+        }
+        function sanitise_input($input)
+        {
+            $input = trim($input);
+            $input = stripslashes($input);
+            $input = htmlspecialchars($input);
+            return $input;
+        }
         if ($_POST['query_type'] === "Change Status of an EOI") {
             $EOINUM = sanitise_input($_POST['EOINUM']);
             $Status = sanitise_input($_POST['Status']);
@@ -106,10 +106,10 @@ function sanitise_input($input)
             $querry = "SELECT * FROM `EOI` WHERE `First Name` LIKE '$first_name' OR `Last Name` LIKE '$last_name'";
             $result = mysqli_query($conn, $querry);
         }
-        
+
         if ($result and mysqli_num_rows($result) > 0) {
             echo "<table border=\"1\">\n";
-            echo "<tr>\n"   
+            echo "<tr>\n"
                 . "<th scope= \"col\">EOINUM</th>\n"
                 . "<th scope= \"col\">Status</th>\n"
                 . "<th scope= \"col\">Job Reference Number</th>\n"
@@ -157,14 +157,11 @@ function sanitise_input($input)
             }
             echo "</table>\n ";
             exit;
-        }
-        else {
+        } else {
             echo "Found no records";
             exit;
         }
-    }
-    else {
-    
+    } else {
     }
     ?>
 </body>
